@@ -8,7 +8,7 @@ const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'build'),
-  eslint: path.join(__dirname, '.eslintrc'),
+  eslint: path.join(__dirname, '.eslintrc.js'),
   stylelint: path.join(__dirname, '.stylelint.config.js')
 };
 
@@ -27,7 +27,7 @@ const common = {
     preLoaders: [
       {
         test: /\.jsx?$/,
-        loader: 'eslint-loader',
+        loader: 'eslint',
         include: PATHS.app
       },
       {
@@ -44,7 +44,7 @@ const common = {
       },
       {
         test: /\.jsx?$/,
-        loaders: ['babel?cacheDirectory'],
+        loader: 'babel?cacheDirectory',
         include: PATHS.app
       },
     ]
