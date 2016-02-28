@@ -11,5 +11,12 @@
       "async": false,
       "asyncGenerators:": false
     }],
-  ]
+  ],
+  "env": {
+    "start": {
+      "presets": [
+        "react-hmre"
+      ]
+    }
+  }
 }
