@@ -5,7 +5,9 @@ export default class Note extends React.Component {
     super(props);
 
     this.renderEdit = this.renderEdit.bind(this);
+    this.renderDelete = this.renderDelete.bind(this);
     this.renderNote = this.renderNote.bind(this);
+
     this.edit = this.edit.bind(this);
     this.checkEnter = this.checkEnter.bind(this);
     this.finishEdit = this.finishEdit.bind(this);
@@ -23,16 +25,28 @@ export default class Note extends React.Component {
   }
 
   renderEdit() {
-    return <input type="text"
-      ref={ (e) => e ? e.selectionStart = this.props.task.length : null }
-      autoFocus={ true }
-      defaultValue={ this.props.task }
-      onBlur={ this.finishEdit }
-      onKeyPress={ this.checkEnter } />;
+    return (
+      <input type="text"
+        ref={ (e) => e ? e.selectionStart = this.props.task.length : null }
+        autoFocus={ true }
+        defaultValue={ this.props.task }
+        onBlur={ this.finishEdit }
+        onKeyPress={ this.checkEnter } />
+    );
+  }
+
+  renderDelete() {
+    return <button onClick={ this.props.onDelete }>x</button>;
   }
 
   renderNote() {
-    return <div onClick={ this.edit }>{ this.props.task }</div>;
+    const onDelete = this.props.onDelete;
+    return (
+      <div onClick={ this.edit }>
+        <span>{ this.props.task }</span>
+        { onDelete ? this.renderDelete() : null }
+      </div>
+    );
   }
 
   edit() {
