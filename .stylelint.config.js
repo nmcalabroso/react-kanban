@@ -10,7 +10,7 @@ module.exports = {
     'media-feature-colon-space-before': 'never',
     'media-feature-name-no-vendor-prefix': true,
     'max-empty-lines': 2,
-    'number-leading-zero': 'never',
+    'number-leading-zero': 'always',
     'number-no-trailing-zeros': true,
     'property-no-vendor-prefix': true,
     'rule-no-duplicate-properties': true,
